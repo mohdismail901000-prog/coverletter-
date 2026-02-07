@@ -6,8 +6,8 @@ import { coverLetters } from "@/db/schema";
 import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 
-export async function generateCoverLetter(prevState: any, formData: FormData) {
-    const { userId } = auth();
+export async function generateCoverLetter(_prevState: unknown, formData: FormData) {
+    const { userId } = await auth();
     if (!userId) {
         return { error: "Unauthorized" };
     }
